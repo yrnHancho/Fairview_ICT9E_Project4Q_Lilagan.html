@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project</title>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    :root {
+      --text-color:black; /* Define a variable for the text color */
+    } 
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: white; 
+      color: var(--text-color); 
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .converter {
+      display: flex;
+      align-items: center;
+    }
+
+    .converter input[type="text"] {
+      margin-right: 10px;
+    }
+
+    .converter button {
+      padding: 8px 20px;
+      background-color: black 
+      color: black; 
+    }
+
+    .table-container {
+      display: flex;
+      justify-content: center;
+      padding: 0 20px; 
+    }
+
+    .table {
+      width: 50%;
+      background-color: grey;
+    }
+
+    .table thead th {
+      background-color: grey; 
+      color: black !important;
+    }
+
+    .table tbody td {
+      color: black!important; 
+    }
+
+    .table thead tr:first-child {
+      background-color: grey; 
+    }
+
+    .cmResult,
+    .mResult,
+    .kmResult,
+    h1,
+    th {
+      color: var(--text-color) !important; 
+
+    .converter-title {
+      text-decoration: none; 
+    }
+  </style>
+</head>
+<body>
+  <h1><span class="converter-title">Length Converter</span></h1>
+  <div class="converter">
+    <input type="text" id="millimeterInput" placeholder="Enter millimeters">
+    <button onclick="convertLength()">Convert</button>
+  </div>
+  <br>
+  <div class="table-container table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr style="color: pink; background-color: blue;">
+          <th>Conversion</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color: pink;">Centimeters/Cm</td>
+          <td id="cmResult" class="cmResult"></td>
+        </tr>
+        <tr>
+          <td style="color: pink;">Meters/M</td>
+          <td id="mResult" class="mResult"></td>
+        </tr>
+        <tr>
+          <td style="color: pink;">Kilometers/Km</td>
+          <td id="kmResult" class="kmResult"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script>
+    function convertLength() {
+      var millimeterInput = document.getElementById("millimeterInput").value;
+      var cmResult = document.getElementById("cmResult");
+      var mResult = document.getElementById("mResult");
+      var kmResult = document.getElementById("kmResult");
+
+      var centimeters = millimeterInput / 10;
+      cmResult.textContent = centimeters + " cm";
+
+      var meters = millimeterInput / 1000;
+      mResult.textContent = meters + " m";
+
+      var kilometers = millimeterInput / 1000000;
+      kmResult.textContent = kilometers + " km";
+    }
+  </script>
+</body>
+</html>
